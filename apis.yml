@@ -1,8 +1,8 @@
 aid: modo-energy
 name: Modo Energy
 description: >-
-  Modo Energys API is designed for battery operators, owners, and utilities
-  looking to build state-of-the-art energy data systems. 
+  Modo Energys API is designed for battery operators, owners, and utilities looking
+  to build state-of-the-art energy data systems.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -18,8 +18,8 @@ apis:
   - aid: modo-energy:modo-energy
     name: Modo Energy
     description: >-
-      Modo Energys API is designed for battery operators, owners, and utilities
-      looking to build state-of-the-art energy data systems. 
+      Modo Energys API is designed for battery operators, owners, and utilities looking
+      to build state-of-the-art energy data systems.
     humanURL: ' https://developers.modoenergy.com/docs/getting-started'
     tags:
       - API
