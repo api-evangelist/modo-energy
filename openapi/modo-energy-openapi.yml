@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: Modo Energy API
+  version: "v1"
+  description: |
+    Modo Energy's public API for battery operators, owners, and utilities to
+    consume energy market data. RESTful, JSON-encoded; authenticated via an
+    `X-Token` header. Public API rate limit is 1000 requests per minute.
+
+    Endpoint structure: `api.modoenergy.com/pub/v1/{locale}/{source}/{datapoint}`.
+  contact:
+    name: Modo Energy
+    url: https://developers.modoenergy.com/docs/getting-started
+servers:
+  - url: https://api.modoenergy.com/pub/v1
+    description: Modo Energy public API
+security:
+  - apiKey: []
+tags:
+  - name: GB
+    description: Great Britain market datasets
+  - name: ERCOT
+    description: ERCOT (Texas) battery operations
+  - name: NEM
+    description: Australian National Electricity Market
+paths:
+  /gb/modo/benchmarking/monthly-leaderboard:
+    get:
+      tags: [GB]
+      operationId: monthlyLeaderboard
+      summary: Monthly Leaderboard
+      description: GB Leaderboard results per calendar month.
+      parameters:
+        - name: date_from
+          in: query
+          required: true
+          description: Start month, format `yyyy-mm`.
+          schema: { type: string }
+        - name: date_to
+          in: query
+          required: true
+          description: End month, format `yyyy-mm`.
+          schema: { type: string }
+        - name: asset_name
+          in: query
+          required: false
+          description: Name of an individual battery energy storage asset.
+          schema: { type: string }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer }
+        - name: offset
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        "200": { description: Success }
+        "401": { description: Unauthorized }
+        "403": { description: Forbidden }
+        "429": { description: Too Many Requests }
+  /gb/modo/benchmarking/asset-operations-live:
+    get:
+      tags: [GB]
+      operationId: assetOperations
+      summary: Asset Operations
+      description: Live detailed revenue breakdown for individual GB battery assets.
+      parameters:
+        - name: settlement_date_from
+          in: query
+          required: true
+          description: Start delivery date, format `yyyy-mm-dd`.
+          schema: { type: string, format: date }
+        - name: settlement_date_to
+          in: query
+          required: true
+          description: End delivery date, format `yyyy-mm-dd`.
+          schema: { type: string, format: date }
+        - name: asset_name
+          in: query
+          required: false
+          schema: { type: string }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer }
+        - name: offset
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        "200": { description: Success }
+        "401": { description: Unauthorized }
+        "429": { description: Too Many Requests }
+  /gb/modo/benchmarking/leaderboard-live:
+    get:
+      tags: [GB]
+      operationId: indexBreakdown
+      summary: Index Breakdown
+      description: Live Leaderboard data for individual GB battery assets.
+      parameters:
+        - name: settlement_date_from
+          in: query
+          required: true
+          schema: { type: string, format: date }
+        - name: settlement_date_to
+          in: query
+          required: true
+          schema: { type: string, format: date }
+        - name: asset_name
+          in: query
+          required: false
+          schema: { type: string }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer }
+        - name: offset
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        "200": { description: Success }
+        "401": { description: Unauthorized }
+        "429": { description: Too Many Requests }
+  /us/ercot/modo/bess-asset-physical:
+    get:
+      tags: [ERCOT]
+      operationId: bessPhysicalOperationsErcot
+      summary: BESS Physical Operations and Availability
+      description: |
+        Availability and physical operations breakdown for individual battery
+        assets in ERCOT. 60-day delayed data.
+      parameters:
+        - name: date_from
+          in: query
+          required: true
+          schema: { type: string, format: date }
+        - name: date_to
+          in: query
+          required: true
+          schema: { type: string, format: date }
+        - name: asset_name
+          in: query
+          required: false
+          schema: { type: string }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer }
+        - name: offset
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        "200": { description: Success }
+        "401": { description: Unauthorized }
+        "429": { description: Too Many Requests }
+  /australia-nem/assets/{asset_id}/revenue/:
+    get:
+      tags: [NEM]
+      operationId: ausNemAssetRevenue
+      summary: AUS NEM Asset Revenue
+      description: |
+        Retrieves revenue data for a specific asset within the Australian
+        National Electricity Market (NEM) over a defined time range.
+      parameters:
+        - name: asset_id
+          in: path
+          required: true
+          schema: { type: string }
+        - name: date_from
+          in: query
+          required: true
+          schema: { type: string, format: date }
+        - name: date_to
+          in: query
+          required: true
+          schema: { type: string, format: date }
+      responses:
+        "200": { description: Success }
+        "401": { description: Unauthorized }
+        "404": { description: Not Found }
+        "429": { description: Too Many Requests }
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Token
+      description: Public API token obtained from your Modo Energy account.
