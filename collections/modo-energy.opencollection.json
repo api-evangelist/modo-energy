@@ -1,0 +1,227 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modo Energy API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Token",
+      "value": "{{X-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GB",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Monthly Leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/gb/modo/benchmarking/monthly-leaderboard",
+            "params": [
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start month, format `yyyy-mm`."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End month, format `yyyy-mm`."
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query",
+                "description": "Name of an individual battery energy storage asset."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GB Leaderboard results per calendar month."
+        },
+        {
+          "info": {
+            "name": "Asset Operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/gb/modo/benchmarking/asset-operations-live",
+            "params": [
+              {
+                "name": "settlement_date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start delivery date, format `yyyy-mm-dd`."
+              },
+              {
+                "name": "settlement_date_to",
+                "value": "",
+                "type": "query",
+                "description": "End delivery date, format `yyyy-mm-dd`."
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Live detailed revenue breakdown for individual GB battery assets."
+        },
+        {
+          "info": {
+            "name": "Index Breakdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/gb/modo/benchmarking/leaderboard-live",
+            "params": [
+              {
+                "name": "settlement_date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "settlement_date_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Live Leaderboard data for individual GB battery assets."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ERCOT",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BESS Physical Operations and Availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/us/ercot/modo/bess-asset-physical",
+            "params": [
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Availability and physical operations breakdown for individual battery\nassets in ERCOT. 60-day delayed data.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NEM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AUS NEM Asset Revenue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/australia-nem/assets/:asset_id/revenue/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves revenue data for a specific asset within the Australian\nNational Electricity Market (NEM) over a defined time range.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
