@@ -4,7 +4,7 @@ description: Modo Energy's API is designed for battery operators, owners, and ut
 type: Index
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/modo-energy/refs/heads/main/apis.yml
 tags:
   - Energy
