@@ -17,7 +17,7 @@ specificationVersion: '0.19'
 common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/modo-energy
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developers.modoenergy.com/llms.txt
 apis:
   - aid: modo-energy:modo-energy
