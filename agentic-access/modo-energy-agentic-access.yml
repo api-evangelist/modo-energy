@@ -1,0 +1,64 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/modo-energy-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 5
+  by_action_class:
+    connected: 5
+  by_consequence:
+    read: 5
+  human_in_the_loop_required: 0
+operations:
+- path: /gb/modo/benchmarking/monthly-leaderboard
+  method: get
+  operationId: monthlyLeaderboard
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /gb/modo/benchmarking/asset-operations-live
+  method: get
+  operationId: assetOperations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /gb/modo/benchmarking/leaderboard-live
+  method: get
+  operationId: indexBreakdown
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /us/ercot/modo/bess-asset-physical
+  method: get
+  operationId: bessPhysicalOperationsErcot
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /australia-nem/assets/{asset_id}/revenue/
+  method: get
+  operationId: ausNemAssetRevenue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
