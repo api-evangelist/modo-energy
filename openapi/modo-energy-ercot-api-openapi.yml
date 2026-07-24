@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  title: Modo Energy ERCOT API
+  version: v1
+  description: 'Modo Energy''s public API for battery operators, owners, and utilities to
+
+    consume energy market data. RESTful, JSON-encoded; authenticated via an
+
+    `X-Token` header. Public API rate limit is 1000 requests per minute.
+
+
+    Endpoint structure: `api.modoenergy.com/pub/v1/{locale}/{source}/{datapoint}`.
+
+    '
+  contact:
+    name: Modo Energy
+    url: https://developers.modoenergy.com/docs/getting-started
+servers:
+- url: https://api.modoenergy.com/pub/v1
+  description: Modo Energy public API
+security:
+- apiKey: []
+tags:
+- name: ERCOT
+  description: ERCOT (Texas) battery operations
+paths:
+  /us/ercot/modo/bess-asset-physical:
+    get:
+      tags:
+      - ERCOT
+      operationId: bessPhysicalOperationsErcot
+      summary: BESS Physical Operations and Availability
+      description: 'Availability and physical operations breakdown for individual battery
+
+        assets in ERCOT. 60-day delayed data.
+
+        '
+      parameters:
+      - name: date_from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: date_to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: asset_name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '429':
+          description: Too Many Requests
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Token
+      description: Public API token obtained from your Modo Energy account.

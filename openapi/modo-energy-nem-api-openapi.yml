@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: Modo Energy ERCOT NEM API
+  version: v1
+  description: 'Modo Energy''s public API for battery operators, owners, and utilities to
+
+    consume energy market data. RESTful, JSON-encoded; authenticated via an
+
+    `X-Token` header. Public API rate limit is 1000 requests per minute.
+
+
+    Endpoint structure: `api.modoenergy.com/pub/v1/{locale}/{source}/{datapoint}`.
+
+    '
+  contact:
+    name: Modo Energy
+    url: https://developers.modoenergy.com/docs/getting-started
+servers:
+- url: https://api.modoenergy.com/pub/v1
+  description: Modo Energy public API
+security:
+- apiKey: []
+tags:
+- name: NEM
+  description: Australian National Electricity Market
+paths:
+  /australia-nem/assets/{asset_id}/revenue/:
+    get:
+      tags:
+      - NEM
+      operationId: ausNemAssetRevenue
+      summary: AUS NEM Asset Revenue
+      description: 'Retrieves revenue data for a specific asset within the Australian
+
+        National Electricity Market (NEM) over a defined time range.
+
+        '
+      parameters:
+      - name: asset_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: date_from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: date_to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '429':
+          description: Too Many Requests
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Token
+      description: Public API token obtained from your Modo Energy account.
