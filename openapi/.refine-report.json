@@ -1,0 +1,18 @@
+{
+  "provider": "modo-energy",
+  "sources": [
+    "modo-energy-ercot-api-openapi.yml",
+    "modo-energy-gb-api-openapi.yml",
+    "modo-energy-nem-api-openapi.yml"
+  ],
+  "outputs": [
+    "modo-energy-ercot-api-openapi.yml",
+    "modo-energy-gb-api-openapi.yml",
+    "modo-energy-nem-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
