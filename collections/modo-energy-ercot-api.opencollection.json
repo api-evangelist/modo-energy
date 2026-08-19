@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modo Energy ERCOT API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Token",
+      "value": "{{X-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ERCOT",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BESS Physical Operations and Availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/us/ercot/modo/bess-asset-physical",
+            "params": [
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Availability and physical operations breakdown for individual battery\nassets in ERCOT. 60-day delayed data.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

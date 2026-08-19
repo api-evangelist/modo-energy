@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modo Energy ERCOT GB API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Token",
+      "value": "{{X-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GB",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Monthly Leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/gb/modo/benchmarking/monthly-leaderboard",
+            "params": [
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start month, format `yyyy-mm`."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End month, format `yyyy-mm`."
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query",
+                "description": "Name of an individual battery energy storage asset."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GB Leaderboard results per calendar month."
+        },
+        {
+          "info": {
+            "name": "Asset Operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/gb/modo/benchmarking/asset-operations-live",
+            "params": [
+              {
+                "name": "settlement_date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start delivery date, format `yyyy-mm-dd`."
+              },
+              {
+                "name": "settlement_date_to",
+                "value": "",
+                "type": "query",
+                "description": "End delivery date, format `yyyy-mm-dd`."
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Live detailed revenue breakdown for individual GB battery assets."
+        },
+        {
+          "info": {
+            "name": "Index Breakdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/gb/modo/benchmarking/leaderboard-live",
+            "params": [
+              {
+                "name": "settlement_date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "settlement_date_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "asset_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Live Leaderboard data for individual GB battery assets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

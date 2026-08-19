@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modo Energy ERCOT NEM API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Token",
+      "value": "{{X-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NEM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AUS NEM Asset Revenue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.modoenergy.com/pub/v1/australia-nem/assets/:asset_id/revenue/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves revenue data for a specific asset within the Australian\nNational Electricity Market (NEM) over a defined time range.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
