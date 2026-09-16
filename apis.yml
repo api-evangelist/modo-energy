@@ -1,6 +1,7 @@
 aid: modo-energy
 name: Modo Energy
-description: Modo Energy's API is designed for battery operators, owners, and utilities looking to build state-of-the-art energy data systems.
+description: Modo Energy's API is designed for battery operators, owners, and utilities looking to build
+  state-of-the-art energy data systems.
 type: Index
 deliveryModel:
   model: unknown
@@ -32,30 +33,31 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/modo-energy.png
 url: https://raw.githubusercontent.com/api-evangelist/modo-energy/refs/heads/main/apis.yml
 tags:
-  - Energy
-  - Battery Storage
-  - Utilities
-  - Data
+- Energy
+- Battery Storage
+- Utilities
+- Data
 created: '2025-05-02'
-modified: '2026-04-28'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 common:
-  - type: AgenticAccess
-    url: agentic-access/modo-energy-agentic-access.yml
-  - type: DomainSecurity
-    url: security/modo-energy-domain-security.yml
-  - type: Authentication
-    url: authentication/modo-energy-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/modo-energy
-  - type: LlmsText
-    url: https://developers.modoenergy.com/llms.txt
+- type: Website
+  url: https://modoenergy.com
+- type: AgenticAccess
+  url: agentic-access/modo-energy-agentic-access.yml
+- type: DomainSecurity
+  url: security/modo-energy-domain-security.yml
+- type: Authentication
+  url: authentication/modo-energy-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/modo-energy
+- type: LlmsText
+  url: https://developers.modoenergy.com/llms.txt
 apis:
 - aid: modo-energy:modo-energy
   name: Modo Energy
-  description: >-
-    Modo Energy's API is designed for battery operators, owners, and utilities looking to build state-of-the-art
-    energy data systems. RESTful, JSON-encoded, authenticated via x-token header.
+  description: Modo Energy's API is designed for battery operators, owners, and utilities looking to build
+    state-of-the-art energy data systems. RESTful, JSON-encoded, authenticated via x-token header.
   humanURL: https://developers.modoenergy.com/docs/getting-started
   baseURL: https://api.modoenergy.com/pub/v1
   tags:
@@ -100,5 +102,5 @@ apis:
   - type: OpenAPI
     url: openapi/modo-energy-nem-api-openapi.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
