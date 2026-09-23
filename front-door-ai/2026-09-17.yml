@@ -1,0 +1,27 @@
+# Front Door AI Index — modo-energy — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: modo-energy
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: modoenergy.com
+  final_host: modoenergy.com
+  ownership: own
+  owner: modo-energy
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 5
+  host_score: 5
+  density: 5.29
+  words: 946
+  tiers:
+    agentic: 1
+    core: 4
+    model: 0
+  ambiguous: 3
+  top_terms:
+    AI: 4
+    intelligence: 3
+    prompts: 1

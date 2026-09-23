@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Modo Energy ERCOT GB API
+  title: Modo Energy GB API
   version: v1
   description: 'Modo Energy''s public API for battery operators, owners, and utilities to
 
@@ -9,9 +9,7 @@ info:
     `X-Token` header. Public API rate limit is 1000 requests per minute.
 
 
-    Endpoint structure: `api.modoenergy.com/pub/v1/{locale}/{source}/{datapoint}`.
-
-    '
+    Endpoint structure: `api.modoenergy.com/pub/v1/{locale}/{source}/{datapoint}`.'
   contact:
     name: Modo Energy
     url: https://developers.modoenergy.com/docs/getting-started
