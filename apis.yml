@@ -41,6 +41,12 @@ created: '2025-05-02'
 modified: '2026-09-16'
 specificationVersion: '0.23'
 common:
+- type: Plans
+  url: plans/modo-energy-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/modo-energy-rate-limits.yml
+- type: FinOps
+  url: finops/modo-energy-finops.yml
 - type: Website
   url: https://modoenergy.com
 - type: AgenticAccess
